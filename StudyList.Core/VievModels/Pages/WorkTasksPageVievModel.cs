@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
+
 namespace StudyList.Core
 {
     public class WorkTasksPageVievModel : BaseVievModel
@@ -40,7 +41,7 @@ namespace StudyList.Core
         }
 
 
-        private void AddNewTask()
+        public void AddNewTask()
         {
             var newTask = new WorkTaskVievModel
             {

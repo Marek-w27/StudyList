@@ -3,31 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:StudyList"
+             xmlns:local="clr-namespace:StudyList" xmlns:core="clr-namespace:StudyList.Core;assembly=StudyList.Core" d:DataContext="{d:DesignInstance Type=core:WorkTasksPageVievModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="520.153" d:DesignWidth="828.395">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+
         <StackPanel HorizontalAlignment="Center" >
-            <TextBlock Margin="10" HorizontalAlignment="Center" Text="Dodaj zadanie" FontSize="20" Foreground="Black"/>
-            <ScrollViewer Height="300" Width="700" Background="White">
-                <ItemsControl ItemsSource="{Binding WorkTaskList}" Margin="15" Width="700">
-                    <ItemsControl.ItemTemplate>
+            
+            <TextBlock Margin="10" HorizontalAlignment="Center" Text="Lista zadań" FontSize="20" Foreground="Black"/>
+            <Border CornerRadius="5" Height="300" Width="784" Background="#FF353131" Opacity="0.50" BorderThickness="2,2,2,2" BorderBrush="Black" >
+            
+                <ScrollViewer  Height="300" Width="774" HorizontalAlignment="Center" Background="#FF353131" Opacity="0.50" BorderBrush="Black" Foreground="White"  >
+                
+                <ItemsControl ItemsSource="{Binding WorkTaskList}" Margin="15" Width="700" Background="#FF353131" >
+                    <ItemsControl.ItemTemplate >
                         <DataTemplate>
                             <local:WorkTask/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
+        
+         </Border>
             <TextBlock Text="Tytuł zadania" FontSize="15" Width="100" HorizontalAlignment="Left" Foreground="Black"  />
-            <TextBox Text="{Binding NewWorkTaskTitle, Mode=TwoWay}" Width="250"  HorizontalAlignment="Left" Background="White" Foreground="Black"/>
-            <TextBlock Text="Opis zadania" FontSize="15" Width="100" HorizontalAlignment="Left" Foreground="Black"/>
-            <TextBox Text="{Binding NewWorkTaskDescription, Mode=TwoWay}" Width="400"  HorizontalAlignment="Left" Background="White" Foreground="Black"/>
+            <TextBox Text="{Binding NewWorkTaskTitle, Mode=TwoWay}" Width="250"  HorizontalAlignment="Left" Background="#FF353131" Foreground="White" Opacity="0.50" Cursor="IBeam"/>
+            <TextBlock Text="Opis zadania" FontSize="15" Width="100" HorizontalAlignment="Left" Foreground="Black" />
+            <Border CornerRadius="5" Width="400"  HorizontalAlignment="Left" Background= "#FF353131"  Opacity="0.50" Cursor="IBeam" >
+            <TextBox Text="{Binding NewWorkTaskDescription, Mode=TwoWay}" Foreground="White"/>
+            </Border>
             <Separator Margin="15"/>
             <StackPanel Orientation="Horizontal">
-                <Button Command="{Binding AddNewTaskCommand}" Content="Dodaj" Margin="10,0" />
+                <Button  Content="Dodaj" Margin="10,0" Click="OpentAIWTP" Cursor="Hand"/>
                 <Button Command="{Binding DeleteSelectedTaskCommand}" Content="Usuń" Margin="10,0" />
             </StackPanel>
         </StackPanel>
-            
+
     </Grid>
 </UserControl>

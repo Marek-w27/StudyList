@@ -25,5 +25,11 @@ namespace StudyList
 
             DataContext = new WorkTasksPageVievModel();
         }
+
+        private void OpentAIWTP(object sender, RoutedEventArgs e)
+        {
+            AddItemWTP addItemWTP = new AddItemWTP();
+            addItemWTP.ShowDialog();
+        }
     }
 }

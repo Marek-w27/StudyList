@@ -6,13 +6,15 @@
              xmlns:local="clr-namespace:StudyList"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <CheckBox IsChecked="{Binding IsSelected}"/>
+    <Border CornerRadius="20">
+    <StackPanel Orientation="Horizontal"> 
+        <CheckBox IsChecked="{Binding IsSelected}"  Foreground="White" Background="White" Style="{DynamicResource MaterialDesignLightCheckBox}" BorderBrush="White"/>
         <StackPanel>
-            <TextBlock Text="{Binding Title}" FontSize="20" Foreground="Black"/>
-            <TextBlock Text="{Binding Description}" FontSize="15" Foreground="Black"/>
-            <TextBlock Text="{Binding CreatedDate}" Foreground="Black"/>
+            <TextBlock Text="{Binding Title}" FontSize="20" Foreground="White"/>
+            <TextBlock Text="{Binding Description}" FontSize="15" Foreground="white"/>
+            <TextBlock Text="{Binding CreatedDate}" Foreground="white"/>
             <Separator/>
         </StackPanel>
     </StackPanel>
+    </Border>
 </UserControl>
